@@ -1,0 +1,74 @@
+name:                WebMediaPlayer
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+
+license:             AGPL
+license-file:        LICENSE
+author:              Joel Williamson
+maintainer:          joel@joelwilliamson.ca
+copyright:           © 2016 Joel Williamson
+homepage:            http://github.com/joelwilliamson/WebMediaPlayer
+bug-reports:         http://github.com/joelwilliamson/WebMediaPlayer/issues
+
+category:            Test
+build-type:          Simple
+stability:           alpha (experimental)
+cabal-version:       >=1.10
+
+extra-source-files:
+  README.md
+  stack.yaml
+
+source-repository head
+  type:     git
+  location: https://github.com/joelwilliamson/WebMediaPlayer
+
+library
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2
+  hs-source-dirs:    src
+  exposed-modules:   Lib
+  build-depends:     base >= 4.8 && < 5
+
+executable WebMediaPlayer-exe
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs:    src-exe
+  main-is:           Main.hs
+  build-depends:     base >= 4.8 && < 5
+                   , WebMediaPlayer
+
+test-suite WebMediaPlayer-test
+  type:              exitcode-stdio-1.0
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs:    src-test
+  main-is:           Main.hs
+  build-depends:     base >= 4.8 && < 5
+                   , tasty >= 0.11
+                   , tasty-hunit >= 0.9
+                   , tasty-smallcheck >= 0.8
+                   , WebMediaPlayer
+
+test-suite WebMediaPlayer-doctest
+  type:              exitcode-stdio-1.0
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs:    src-doctest
+  main-is:           Main.hs
+  build-depends:     base >= 4.8 && < 5
+                   , doctest >=0.10
+                   , Glob >= 0.7
+                   , QuickCheck >= 2.5
+                   , WebMediaPlayer
+
+benchmark WebMediaPlayer-benchmark
+  type:              exitcode-stdio-1.0
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs:    src-benchmark
+  main-is:           Main.hs
+  build-depends:     base >= 4.8 && < 5
+                   , criterion >= 1.1
+                   , WebMediaPlayer
