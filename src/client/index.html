@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>WebMediaPlayer</title>
+    <meta charset='utf8' />
   </head>
 
   <body>
-    <div id="previousSongHolder"><p>This is the holder for the previous song</p></div>
-    <div id="currentSongHolder"><p>This is the holder for the current song</p></div>
-    <div id="nextSongHolder"><p>This is the holder for the next song</p></div>
-    <script src="player.js" />
+    <div id="previousSongHolder"><p>This is the holder for the previous song</p><audio id="previousSong"></audio></div>
+    <div id="currentSongHolder"><p>This is the holder for the current song</p><audio id="currentSong"></audio></div>
+    <div id="nextSongHolder"><p>This is the holder for the next song</p><audio id="nextSong"></audio></div>
+    <script src="player.js"> </script>
   </body>
 </html>
